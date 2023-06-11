@@ -39,6 +39,9 @@ renderer.setMaterial(mtl);
 
 engine.run();
 
+// https://mdn.alipayobjects.com/rms/afts/file/A*0jiKRK6D1-kAAAAAAAAAAAAAARQnAQ/uastc_astc.wasm
+// https://mdn.alipayobjects.com/rms/afts/file/A*88bRR6-GF7oAAAAAAAAAAAAAARQnAQ/basis_transcoder.wasm
+
 async function testLoader() {
   engine.resourceManager.load<Texture2D>("/DuckCM.ktx2").then((res) => {
     console.log("result", res);
