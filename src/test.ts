@@ -1,0 +1,27 @@
+import {
+  GLCapabilityType,
+  Texture2D,
+  TextureFormat,
+  WebGLEngine,
+} from "@galacean/engine";
+
+export async function init() {
+  const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+  const ktx2Buffer =
+    "data:application/octet-stream;base64,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";
+  const blob = await fetch(ktx2Buffer).then((res) => res.blob());
+  let texture2dKtx2Url = URL.createObjectURL(blob) + "#.ktx2";
+
+  const engine = await WebGLEngine.create({ canvas });
+  // @ts-ignore
+  engine._hardwareRenderer.canIUse = (cap: GLCapabilityType) => {
+    return cap === GLCapabilityType.pvrtc;
+  };
+  const texture2d = await engine.resourceManager.load<Texture2D>(
+    "/photo-min.ktx2"
+  );
+}
+
+init().catch((e) => {
+  console.error(e);
+});

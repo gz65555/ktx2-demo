@@ -1,11 +1,13 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@galacean/engine': ^0.9
+  '@galacean/engine': beta
+  '@galacean/engine-toolkit': 1.0.0-beta.2
   vite: ^2
 
 dependencies:
-  '@galacean/engine': 0.9.11
+  '@galacean/engine': 1.0.0-beta.12
+  '@galacean/engine-toolkit': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
 
 devDependencies:
   vite: 2.9.16
@@ -21,45 +23,156 @@ packages:
     dev: true
     optional: true
 
-  /@galacean/engine-core/0.9.11:
-    resolution: {integrity: sha512-Vaa38JiE+/lGtxRTF0frMM2DipBCYHbhx7qbDF1fFxtwZrbKImesAddenqxAJ3bkOBAM3GmlonrlWZGclojomw==, tarball: '@galacean/engine-core/download/@galacean/engine-core-0.9.11.tgz'}
+  /@galacean/engine-core/1.0.0-beta.12:
+    resolution: {integrity: sha512-AdvBUU3VqFwZC2ME5UVCWtTsRa8WA0blaiHJ4EMb5r7IB4Cbm0MI92BGgYRE5N8ms7SrUYxuFEs+r6Hhp4SkKw==, tarball: '@galacean/engine-core/download/@galacean/engine-core-1.0.0-beta.12.tgz'}
     dependencies:
-      '@galacean/engine-math': 0.9.11
+      '@galacean/engine-math': 1.0.0-beta.12
     dev: false
 
-  /@galacean/engine-draco/0.9.11:
-    resolution: {integrity: sha512-QRUATBshCqNg52do5wIV1Sli9QjSkE2DlLXrUiWWgwvowC5pb2lPtNlh9LMjNSkN+f+qB4Hp9M2f7QGNmufydA==, tarball: '@galacean/engine-draco/download/@galacean/engine-draco-0.9.11.tgz'}
+  /@galacean/engine-draco/1.0.0-beta.12:
+    resolution: {integrity: sha512-I5qUqVp0GBaYqdklMtuzmYWqgavSl9ebc48PiNOsWz6QSGpKQZB4Lrm/97DeS+AyJCMcI8opiqYqmG6vWjUVog==, tarball: '@galacean/engine-draco/download/@galacean/engine-draco-1.0.0-beta.12.tgz'}
     dependencies:
-      '@galacean/engine-core': 0.9.11
+      '@galacean/engine-core': 1.0.0-beta.12
     dev: false
 
-  /@galacean/engine-loader/0.9.11:
-    resolution: {integrity: sha512-RGede1nkcD8PRK9ISMctz4lxY4Z6uyqQs+hoqIKldJhPNATzzQ831J2wvCQepGhdbcuI7xTxRTTP6IkOABTrjw==, tarball: '@galacean/engine-loader/download/@galacean/engine-loader-0.9.11.tgz'}
+  /@galacean/engine-loader/1.0.0-beta.12:
+    resolution: {integrity: sha512-+FhitUjWPK4qJ3pa86NVEkUJWy9s9Y4klKcEPOzCetV2Br/ambVJATgMpq4aFeWaZn+OjJQlIgEs91OdNFyJSg==, tarball: '@galacean/engine-loader/download/@galacean/engine-loader-1.0.0-beta.12.tgz'}
     dependencies:
-      '@galacean/engine-core': 0.9.11
-      '@galacean/engine-draco': 0.9.11
-      '@galacean/engine-math': 0.9.11
-      '@galacean/engine-rhi-webgl': 0.9.11
+      '@galacean/engine-core': 1.0.0-beta.12
+      '@galacean/engine-draco': 1.0.0-beta.12
+      '@galacean/engine-math': 1.0.0-beta.12
+      '@galacean/engine-rhi-webgl': 1.0.0-beta.12
     dev: false
 
-  /@galacean/engine-math/0.9.11:
-    resolution: {integrity: sha512-LTtq/WBPVuJxIym4M0Anr+OgrvtmN0GhBfQsr054Z5bRsWQSdYveICK7wkEJDNsi93EyQuKCv7L6lJ/rKZi2Sw==, tarball: '@galacean/engine-math/download/@galacean/engine-math-0.9.11.tgz'}
+  /@galacean/engine-math/1.0.0-beta.12:
+    resolution: {integrity: sha512-f4377J4hSddCak8gq4f1Z4zNg0RHzSvXO42L74UhACoLnw3OUu6zm59wJyioE2y+EeNJg3d/Y4k7rSdy3Iwvmg==, tarball: '@galacean/engine-math/download/@galacean/engine-math-1.0.0-beta.12.tgz'}
     dev: false
 
-  /@galacean/engine-rhi-webgl/0.9.11:
-    resolution: {integrity: sha512-V9j+k3YJ3LnS8Db4EIvVUZWqFsrHAVn+7UljztuRln5nxP8rR/U4EtaJOhu+1+yKegXtIW4BNJVZxuucYxnfhQ==, tarball: '@galacean/engine-rhi-webgl/download/@galacean/engine-rhi-webgl-0.9.11.tgz'}
+  /@galacean/engine-rhi-webgl/1.0.0-beta.12:
+    resolution: {integrity: sha512-yFmjPpTrP5KQnmXLkyt/dlr78YIQctBr1IrM89dSEyY5RyuIOJvsQnZy2WfBECOhYNY0GpoxUF8zEja9w8TM3g==, tarball: '@galacean/engine-rhi-webgl/download/@galacean/engine-rhi-webgl-1.0.0-beta.12.tgz'}
     dependencies:
-      '@galacean/engine-core': 0.9.11
-      '@galacean/engine-math': 0.9.11
+      '@galacean/engine-core': 1.0.0-beta.12
+      '@galacean/engine-math': 1.0.0-beta.12
     dev: false
 
-  /@galacean/engine/0.9.11:
-    resolution: {integrity: sha512-urL++3r/DLibxNfHRmP+2PB9XFMuWrFb2d5U0zAjOI6RHTBZMRaVWIvFORPKGLQiVK10VQN9zWZzuo32UcJ+HQ==, tarball: '@galacean/engine/download/@galacean/engine-0.9.11.tgz'}
+  /@galacean/engine-toolkit-auxiliary-lines/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-a2OGeuK0NcKsVdjTUtuEqEYgwDzLNIrVCG0YAbRbvQ/1JnmlTkm/O5lDlLtS7LKuzmh/cvB3CNCYcTINfFXCAg==, tarball: '@galacean/engine-toolkit-auxiliary-lines/download/@galacean/engine-toolkit-auxiliary-lines-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
     dependencies:
-      '@galacean/engine-core': 0.9.11
-      '@galacean/engine-loader': 0.9.11
-      '@galacean/engine-math': 0.9.11
-      '@galacean/engine-rhi-webgl': 0.9.11
+      '@galacean/engine': 1.0.0-beta.12
+      '@galacean/engine-toolkit-custom-material': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+    dev: false
+
+  /@galacean/engine-toolkit-controls/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-UFxxsZtKaSOP6+0CKV6ScuxSpCMCM25VTEoOdmPI4rKckALkOMwiXlbm6v1Rb+S/42v1VUuJjzJCdg5FjSBPbw==, tarball: '@galacean/engine-toolkit-controls/download/@galacean/engine-toolkit-controls-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit-custom-material/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-tKGRBSYmhvJXCmyFHHkRFgduCIyfP2r6FJ9WwWp/nh2NWGPNxdHgO4Tnqokljnowo7XrafOw+eHRigp+RDgZag==, tarball: '@galacean/engine-toolkit-custom-material/download/@galacean/engine-toolkit-custom-material-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit-framebuffer-picker/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-jbYQyg8FgNiNHlfLVe6KKv0hsgKUaEzkZlzU24n49lUznEUKJzryGCYQ3Fttp5/j24zIx0hiTwXy9VNwbjg+Vg==, tarball: '@galacean/engine-toolkit-framebuffer-picker/download/@galacean/engine-toolkit-framebuffer-picker-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit-geometry-sketch/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-KrxWrxPNkgMRvCnnwAfogzhRNeXDcAGfpen00pRbNFRFyQBWA2ATZnDEg8CNDZWMbx6DYOMW32Y+T4W5LI6ChQ==, tarball: '@galacean/engine-toolkit-geometry-sketch/download/@galacean/engine-toolkit-geometry-sketch-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit-gizmo/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-rSlcZu+rYy6Kg95+BDOcokGXuNyu6qIjbsmLC2FAb8mJIzKJyS1EIzCfnsiMvCWZr9x9G+Q7NTVc3SvwgKbcxA==, tarball: '@galacean/engine-toolkit-gizmo/download/@galacean/engine-toolkit-gizmo-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+      '@galacean/engine-toolkit-custom-material': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-framebuffer-picker': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+    dev: false
+
+  /@galacean/engine-toolkit-lines/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-Cy3pyf4Wm/jC7xbLqmGKCNHMwan3r6Q9GEYj17hyBqBvrLCw19iwsG39C4DQWjbL7hcoENHc+f6WBgznoYPpWA==, tarball: '@galacean/engine-toolkit-lines/download/@galacean/engine-toolkit-lines-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit-navigation-gizmo/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-3j6V1x3cQyAQvO5k0Ug/8/Ri1hX+YSKmQvgYpmnLfP99hQGOcEaCyGJIf1T2Lhaf8a+r9OvfW2xvh1p1Bc+LBw==, tarball: '@galacean/engine-toolkit-navigation-gizmo/download/@galacean/engine-toolkit-navigation-gizmo-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+      '@galacean/engine-toolkit-controls': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-custom-material': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+    dev: false
+
+  /@galacean/engine-toolkit-outline/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-/ikl8lfnJ+C701V1z5YxVuB52ky9EgiJv7aKW+ZVTGwvmfLcvgdzJErCDSFs3FxDc+4E0WuuSPhAT7cfeFaU0Q==, tarball: '@galacean/engine-toolkit-outline/download/@galacean/engine-toolkit-outline-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit-skeleton-viewer/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-6k9DE4UU7TTIv5B4d80SPubNRU8OZY+PRStr7oGXZ2NiJE4kLQTONwx2/MdxZZKBLnrw4C+0lTQTmisjCjcSMA==, tarball: '@galacean/engine-toolkit-skeleton-viewer/download/@galacean/engine-toolkit-skeleton-viewer-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit-stats/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-h2JnCUsotYwzooHK531O16mU+4KA1SRCHty0GsAhYgR4K0xjGWSJPvdt2m4V22EwUMD2yCv7ubLo+FJgc/xYDw==, tarball: '@galacean/engine-toolkit-stats/download/@galacean/engine-toolkit-stats-1.0.0-beta.2.tgz'}
+    peerDependencies:
+      '@galacean/engine': ^1.0.0-alpha
+    dependencies:
+      '@galacean/engine': 1.0.0-beta.12
+    dev: false
+
+  /@galacean/engine-toolkit/1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q:
+    resolution: {integrity: sha512-e53HNyndPg/BXyXQXdcBpPFfF5F76p3blmwP4Hq1ZKAy4In/KgucTex7uH5KmeoHmx6I6/h6dKqgnAw3DgDZ9g==, tarball: '@galacean/engine-toolkit/download/@galacean/engine-toolkit-1.0.0-beta.2.tgz'}
+    dependencies:
+      '@galacean/engine-toolkit-auxiliary-lines': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-controls': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-custom-material': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-framebuffer-picker': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-geometry-sketch': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-gizmo': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-lines': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-navigation-gizmo': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-outline': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-skeleton-viewer': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+      '@galacean/engine-toolkit-stats': 1.0.0-beta.2_khsclxblfwww7zkrrrytagpp5q
+    transitivePeerDependencies:
+      - '@galacean/engine'
+    dev: false
+
+  /@galacean/engine/1.0.0-beta.12:
+    resolution: {integrity: sha512-VzFUkN5vV9viciqDd5MaKQYaY2uGlhbZFudGsCf1xs7eoW/PFEqMg0GD3XNDSAcG6GNuZRZNZCtnK1dFlTBrBw==, tarball: '@galacean/engine/download/@galacean/engine-1.0.0-beta.12.tgz'}
+    dependencies:
+      '@galacean/engine-core': 1.0.0-beta.12
+      '@galacean/engine-loader': 1.0.0-beta.12
+      '@galacean/engine-math': 1.0.0-beta.12
+      '@galacean/engine-rhi-webgl': 1.0.0-beta.12
     dev: false
 
   /esbuild-android-64/0.14.54:

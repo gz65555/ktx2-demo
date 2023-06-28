@@ -10,6 +10,7 @@
     "vite": "^2"
   },
   "dependencies": {
-    "@galacean/engine": "beta"
+    "@galacean/engine": "beta",
+    "@galacean/engine-toolkit": "1.0.0-beta.2"
   }
 }

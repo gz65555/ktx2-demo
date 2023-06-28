@@ -1,4 +1,5 @@
 import {
+  AssetType,
   BackgroundMode,
   BlinnPhongMaterial,
   Camera,
@@ -11,7 +12,9 @@ import {
   TextureFormat,
   Vector3,
   WebGLEngine,
+  KTX2Loader,
 } from "@galacean/engine";
+import { OrbitControl } from "@galacean/engine-toolkit";
 
 Logger.enable();
 
@@ -29,6 +32,7 @@ async function init() {
   pos.set(5, 5, 5);
   cameraEntity.transform.position = pos;
   cameraEntity.transform.lookAt(new Vector3(0, 0, 0));
+  cameraEntity.addComponent(OrbitControl);
 
   // init light
   scene.ambientLight.diffuseSolidColor.set(1, 1, 1, 1);
@@ -47,7 +51,7 @@ async function init() {
   // https://mdn.alipayobjects.com/rms/afts/file/A*88bRR6-GF7oAAAAAAAAAAAAAARQnAQ/basis_transcoder.wasm
 
   async function testLoader() {
-    // engine.resourceManager.load<Texture2D>("/DuckCM.ktx2").then((tex) => {
+    // engine.resourceManager.load<Texture2D>("/photo-min.ktx2").then((tex) => {
     //   mtl.baseTexture = tex;
     //   if (tex.format === TextureFormat.ASTC_4x4) {
     //     console.log("astc");
@@ -66,6 +70,8 @@ async function init() {
     //   }
     // });
 
+    await KTX2Loader.init(engine);
+
     engine.resourceManager
       .load<TextureCube>("/skybox-zstd.ktx2")
       .then((cubeTex) => {
@@ -73,9 +79,11 @@ async function init() {
         const skyMaterial = (scene.background.sky.material = new SkyBoxMaterial(
           engine
         )) as SkyBoxMaterial;
-        console.log(cubeTex);
         skyMaterial.texture = cubeTex; // 设置立方体纹理
         scene.background.sky.mesh = PrimitiveMesh.createCuboid(engine, 2, 2, 2); // 设置天空盒网格
+      })
+      .catch((e) => {
+        console.log(e);
       });
   }
 
