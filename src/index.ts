@@ -3,6 +3,7 @@ import {
   BackgroundMode,
   BlinnPhongMaterial,
   Camera,
+  GLTFResource,
   Logger,
   MeshRenderer,
   PrimitiveMesh,
@@ -12,9 +13,7 @@ import {
   TextureFormat,
   Vector3,
   WebGLEngine,
-  KTX2Loader,
 } from "@galacean/engine";
-import { OrbitControl } from "@galacean/engine-toolkit";
 
 Logger.enable();
 
@@ -32,7 +31,7 @@ async function init() {
   pos.set(5, 5, 5);
   cameraEntity.transform.position = pos;
   cameraEntity.transform.lookAt(new Vector3(0, 0, 0));
-  cameraEntity.addComponent(OrbitControl);
+  // cameraEntity.addComponent(OrbitControl);
 
   // init light
   scene.ambientLight.diffuseSolidColor.set(1, 1, 1, 1);
@@ -51,30 +50,31 @@ async function init() {
   // https://mdn.alipayobjects.com/rms/afts/file/A*88bRR6-GF7oAAAAAAAAAAAAAARQnAQ/basis_transcoder.wasm
 
   async function testLoader() {
-    // engine.resourceManager.load<Texture2D>("/photo-min.ktx2").then((tex) => {
-    //   mtl.baseTexture = tex;
-    //   if (tex.format === TextureFormat.ASTC_4x4) {
-    //     console.log("astc");
-    //   } else if (tex.format === TextureFormat.PVRTC_RGBA4) {
-    //     console.log("pvrtc alpha");
-    //   } else if (tex.format === TextureFormat.PVRTC_RGB4) {
-    //     console.log("pvrtc");
-    //   } else if (tex.format === TextureFormat.ETC2_RGBA8) {
-    //     console.log("etc2 alpha");
-    //   } else if (tex.format === TextureFormat.ETC2_RGB) {
-    //     console.log("etc2");
-    //   } else if (tex.format === TextureFormat.DXT5) {
-    //     console.log("dxt5");
-    //   } else if (tex.format === TextureFormat.DXT1) {
-    //     console.log("dxt1");
-    //   }
-    // });
+    engine.resourceManager.load<Texture2D>("/jpg-file.ktx2").then((tex) => {
+      mtl.baseTexture = tex;
+      if (tex.format === TextureFormat.ASTC_4x4) {
+        console.log("astc");
+      } else if (tex.format === TextureFormat.PVRTC_RGBA4) {
+        console.log("pvrtc alpha");
+      } else if (tex.format === TextureFormat.PVRTC_RGB4) {
+        console.log("pvrtc");
+      } else if (tex.format === TextureFormat.ETC2_RGBA8) {
+        console.log("etc2 alpha");
+      } else if (tex.format === TextureFormat.ETC2_RGB) {
+        console.log("etc2");
+      } else if (tex.format === TextureFormat.DXT5) {
+        console.log("dxt5");
+      } else if (tex.format === TextureFormat.DXT1) {
+        console.log("dxt1");
+      }
+    });
 
-    await KTX2Loader.init(engine);
+    // await KTX2Loader.init(engine);
 
     engine.resourceManager
       .load<TextureCube>("/skybox-zstd.ktx2")
       .then((cubeTex) => {
+        // console.log(cubeTex);
         scene.background.mode = BackgroundMode.Sky;
         const skyMaterial = (scene.background.sky.material = new SkyBoxMaterial(
           engine
@@ -84,6 +84,20 @@ async function init() {
       })
       .catch((e) => {
         console.log(e);
+      });
+
+    engine.resourceManager
+      .load<GLTFResource>("/gltf/duck-basisu.gltf")
+      .then((gltf) => {
+        gltf.defaultSceneRoot.transform.setPosition(2, -1, 0);
+        rootEntity.addChild(gltf.defaultSceneRoot);
+      });
+
+    engine.resourceManager
+      .load<GLTFResource>("/gltf/duck-basisu.glb")
+      .then((gltf) => {
+        gltf.defaultSceneRoot.transform.setPosition(-2, -1, 0);
+        rootEntity.addChild(gltf.defaultSceneRoot);
       });
   }
 
