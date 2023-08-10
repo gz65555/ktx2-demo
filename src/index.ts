@@ -1,21 +1,21 @@
 import {
-  AssetType,
-  BackgroundMode,
   BlinnPhongMaterial,
   Camera,
-  GLTFResource,
-  Logger,
   MeshRenderer,
   PrimitiveMesh,
-  SkyBoxMaterial,
+  RenderFace,
   Texture2D,
-  TextureCube,
   TextureFormat,
   Vector3,
   WebGLEngine,
 } from "@galacean/engine";
+import { Pane } from "tweakpane";
 
-Logger.enable();
+const PARAMS = {
+  type: "",
+};
+
+const pane = new Pane();
 
 async function init() {
   const canvas = document.getElementById("canvas") as HTMLCanvasElement;
@@ -28,80 +28,52 @@ async function init() {
   const cameraEntity = rootEntity.createChild("camera");
   cameraEntity.addComponent(Camera);
   const pos = cameraEntity.transform.position;
-  pos.set(5, 5, 5);
+  pos.set(0, 0, 3);
   cameraEntity.transform.position = pos;
   cameraEntity.transform.lookAt(new Vector3(0, 0, 0));
-  // cameraEntity.addComponent(OrbitControl);
 
   // init light
   scene.ambientLight.diffuseSolidColor.set(1, 1, 1, 1);
   scene.ambientLight.diffuseIntensity = 1.2;
 
   // init cube
-  const cubeEntity = rootEntity.createChild("cube");
-  const renderer = cubeEntity.addComponent(MeshRenderer);
+  const entity = rootEntity.createChild("cube");
+  const renderer = entity.addComponent(MeshRenderer);
+  // renderer.
   const mtl = new BlinnPhongMaterial(engine);
-  renderer.mesh = PrimitiveMesh.createCuboid(engine);
+  entity.transform.setRotation(90, 0, 0);
+  renderer.mesh = PrimitiveMesh.createPlane(engine);
   renderer.setMaterial(mtl);
+  mtl.renderFace = RenderFace.Double;
 
   engine.run();
 
-  // https://mdn.alipayobjects.com/rms/afts/file/A*0jiKRK6D1-kAAAAAAAAAAAAAARQnAQ/uastc_astc.wasm
-  // https://mdn.alipayobjects.com/rms/afts/file/A*88bRR6-GF7oAAAAAAAAAAAAAARQnAQ/basis_transcoder.wasm
-
-  async function testLoader() {
-    engine.resourceManager.load<Texture2D>("/jpg-file.ktx2").then((tex) => {
+  engine.resourceManager
+    .load<Texture2D>("/texture2d/XDDN_LV1_01_albedo.ktx2")
+    .then((tex) => {
       mtl.baseTexture = tex;
+
       if (tex.format === TextureFormat.ASTC_4x4) {
-        console.log("astc");
+        PARAMS.type = "astc";
       } else if (tex.format === TextureFormat.PVRTC_RGBA4) {
-        console.log("pvrtc alpha");
+        PARAMS.type = "pvrtc alpha";
       } else if (tex.format === TextureFormat.PVRTC_RGB4) {
-        console.log("pvrtc");
+        PARAMS.type = "pvrtc";
       } else if (tex.format === TextureFormat.ETC2_RGBA8) {
-        console.log("etc2 alpha");
+        PARAMS.type = "etc2 alpha";
       } else if (tex.format === TextureFormat.ETC2_RGB) {
         console.log("etc2");
-      } else if (tex.format === TextureFormat.DXT5) {
-        console.log("dxt5");
-      } else if (tex.format === TextureFormat.DXT1) {
-        console.log("dxt1");
+        PARAMS.type = "etc2";
+      } else if (tex.format === TextureFormat.BC1) {
+        PARAMS.type = "bc1";
+      } else if (tex.format === TextureFormat.BC3) {
+        PARAMS.type = "bc3";
+      } else {
+        PARAMS.type = "unsupported";
       }
+      console.log(PARAMS);
+      const item = pane.addBinding(PARAMS, "type");
     });
-
-    // await KTX2Loader.init(engine);
-
-    engine.resourceManager
-      .load<TextureCube>("/skybox-zstd.ktx2")
-      .then((cubeTex) => {
-        // console.log(cubeTex);
-        scene.background.mode = BackgroundMode.Sky;
-        const skyMaterial = (scene.background.sky.material = new SkyBoxMaterial(
-          engine
-        )) as SkyBoxMaterial;
-        skyMaterial.texture = cubeTex; // 设置立方体纹理
-        scene.background.sky.mesh = PrimitiveMesh.createCuboid(engine, 2, 2, 2); // 设置天空盒网格
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-
-    engine.resourceManager
-      .load<GLTFResource>("/gltf/duck-basisu.gltf")
-      .then((gltf) => {
-        gltf.defaultSceneRoot.transform.setPosition(2, -1, 0);
-        rootEntity.addChild(gltf.defaultSceneRoot);
-      });
-
-    engine.resourceManager
-      .load<GLTFResource>("/gltf/duck-basisu.glb")
-      .then((gltf) => {
-        gltf.defaultSceneRoot.transform.setPosition(-2, -1, 0);
-        rootEntity.addChild(gltf.defaultSceneRoot);
-      });
-  }
-
-  testLoader();
 }
 
 init();
